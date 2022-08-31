@@ -14,13 +14,13 @@ export declare class UsersRepository extends EntityRepository<UserDocument> {
     } | {
         _id: any;
         tokens: {
-            error: string;
-            access_token?: undefined;
-            refresh_token?: undefined;
-        } | {
             access_token: string;
             refresh_token: string;
             error?: undefined;
+        } | {
+            error: string;
+            access_token?: undefined;
+            refresh_token?: undefined;
         };
         error?: undefined;
     }>;

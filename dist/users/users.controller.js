@@ -73,12 +73,10 @@ let UsersController = class UsersController {
         }
     }
     async updateUser(user, id, res) {
-        if (user.roles)
-            throw new common_1.UnauthorizedException('You cannot update your own role.');
-        if (user._id)
-            throw new common_1.UnauthorizedException('You cannot update your own id.');
+        if (Object.keys(user).length == 0)
+            throw new common_1.BadRequestException();
         const resp = await this.usersService.updateUser(id, user);
-        res.status(resp.statusCode).json(resp.message);
+        res.status(resp.statusCode).json({ message: resp.message });
     }
 };
 __decorate([
@@ -136,7 +134,7 @@ __decorate([
     __param(1, (0, common_1.Param)('id')),
     __param(2, (0, common_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:paramtypes", [user_dto_1.UpdateUserDTO, Object, Object]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "updateUser", null);
 UsersController = __decorate([

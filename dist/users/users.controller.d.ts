@@ -1,7 +1,6 @@
 import { AuthService } from '../auth/auth.service';
-import { CreateUserDTO } from './dto/user.dto';
+import { CreateUserDTO, UpdateUserDTO } from './dto/user.dto';
 import { UsersService } from './users.service';
-import { User } from './interfaces/user.interface';
 import { ObjectId } from 'mongoose';
 import { Response } from 'express';
 import { CartService } from 'src/cart/cart.service';
@@ -23,5 +22,5 @@ export declare class UsersController {
         refresh_token?: undefined;
     }>;
     users(res: any, _id: ObjectId, sort: string, page: number, limit: number): Promise<void>;
-    updateUser(user: User, id: ObjectId, res: any): Promise<void>;
+    updateUser(user: UpdateUserDTO, id: ObjectId, res: any): Promise<void>;
 }

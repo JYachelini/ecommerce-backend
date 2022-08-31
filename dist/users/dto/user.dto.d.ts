@@ -9,3 +9,10 @@ export declare class CreateUserDTO {
     address: string;
     hashRT: string;
 }
+export declare class UpdateUserDTO {
+    name: string;
+    username: string;
+    email: string;
+    phone: string;
+    address: string;
+}

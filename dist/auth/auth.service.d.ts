@@ -19,13 +19,11 @@ export declare class AuthService {
         error?: undefined;
     }>;
     login: (user: User) => Promise<{
-        error: string;
-        access_token?: undefined;
-        refresh_token?: undefined;
-    } | {
         access_token: string;
         refresh_token: string;
         error?: undefined;
+    } | {
+        error: string;
     }>;
     logout: (_id: ObjectId) => Promise<{
         error: string;
