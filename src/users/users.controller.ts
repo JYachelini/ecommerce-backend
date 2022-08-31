@@ -8,7 +8,6 @@ import {
   Res,
   Req,
   UseGuards,
-  UnauthorizedException,
   HttpStatus,
   Query,
   forwardRef,
@@ -25,7 +24,7 @@ import {
 } from '../auth/guards';
 import { CreateUserDTO, UpdateUserDTO } from './dto/user.dto';
 import { UsersService } from './users.service';
-import { User, UserRole } from './interfaces/user.interface';
+import { UserRole } from './interfaces/user.interface';
 import { ObjectId } from 'mongoose';
 import { GetCurrentUser, hasRoles } from '../auth/decorator';
 import { Response } from 'express';
