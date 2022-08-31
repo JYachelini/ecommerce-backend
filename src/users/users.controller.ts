@@ -13,6 +13,7 @@ import {
   Query,
   forwardRef,
   Inject,
+  BadRequestException,
 } from '@nestjs/common';
 import { AuthService } from '../auth/auth.service';
 import {
@@ -112,6 +113,7 @@ export class UsersController {
   @UseGuards(JwtAuthGuard, UserIsUserGuard)
   @Put('user/:id')
   async updateUser(@Body() user: User, @Param('id') id: ObjectId, @Res() res) {
+    if (Object.keys(user).length == 0) throw new BadRequestException();
     if (user.roles)
       throw new UnauthorizedException('You cannot update your own role.');
 
