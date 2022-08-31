@@ -91,7 +91,8 @@ export class ProductsController {
   @Get('/:id') // Example: localhost:8080/products/62f574b08880dcedb3e7927f     <- Need id from Param
   async getProduct(@Res() res: Response, @Param('id') id: ObjectId) {
     const product = await this.productService.getProduct(id);
-    if (!product) throw new NotFoundException('Product Does not exists');
+    if (!product || product.name == 'CastError')
+      throw new NotFoundException('Product Does not exists.');
     else return res.status(HttpStatus.OK).json({ product });
   }
 

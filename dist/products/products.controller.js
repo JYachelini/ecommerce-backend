@@ -40,6 +40,9 @@ let ProductsController = class ProductsController {
         else if (category) {
             filters = { category };
         }
+        else if (subcategory) {
+            filters = { subcategory };
+        }
         if (_id) {
             filters = { _id };
         }
@@ -63,8 +66,8 @@ let ProductsController = class ProductsController {
     }
     async getProduct(res, id) {
         const product = await this.productService.getProduct(id);
-        if (!product)
-            throw new common_1.NotFoundException('Product Does not exists');
+        if (!product || product.name == 'CastError')
+            throw new common_1.NotFoundException('Product Does not exists.');
         else
             return res.status(common_1.HttpStatus.OK).json({ product });
     }
