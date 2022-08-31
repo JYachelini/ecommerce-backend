@@ -34,21 +34,12 @@ export class ProductsController {
     @Query('id') _id: ObjectId,
     @Query('category') category: string,
     @Query('subcategory') subcategory: string,
-    @Query('sort') sort: string,
+    @Query('sort') sort: string, // Already not use but it works
     @Query('page') page: number,
     @Query('limit') limit: number,
   ) {
     let filters = {};
     let sorting = {};
-
-    // if (name && category) {
-    //   filters = {
-    //     $and: [
-    //       { name: new RegExp(name.toString(), 'i') },
-    //       { category: new RegExp(category.toString(), 'i') },
-    //     ],
-    //   };
-    // }
     if (subcategory && category) {
       filters = {
         $and: [
@@ -60,6 +51,8 @@ export class ProductsController {
       filters = { name };
     } else if (category) {
       filters = { category };
+    } else if (subcategory) {
+      filters = { subcategory };
     }
 
     if (_id) {
