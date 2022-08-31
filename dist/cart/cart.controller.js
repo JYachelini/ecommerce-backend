@@ -27,6 +27,8 @@ let CartController = class CartController {
     }
     async createOrder(res, createCartDTO, req) {
         const user = req.user;
+        if (Object.keys(createCartDTO).length == 0)
+            throw new common_1.BadRequestException();
         const resp = await this.cartService.createOrder(createCartDTO, user);
         if (resp.errors) {
             res.status(common_1.HttpStatus.CONFLICT).json(resp.errors);
@@ -67,6 +69,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CartController.prototype, "createOrder", null);
 __decorate([
+    (0, decorator_1.hasRoles)(user_interface_1.UserRole.ADMIN),
+    (0, common_1.UseGuards)(guards_1.JwtAuthGuard, guards_1.RolesGuard),
     (0, common_1.Get)('/'),
     __param(0, (0, common_1.Res)()),
     __param(1, (0, common_1.Query)('page')),

@@ -8,10 +8,18 @@ async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     const configService = app.get(config_1.ConfigService);
     const front_port = configService.get('FRONTEND_PORT') || 5173;
-    app.enableCors({
-        origin: `http://localhost:${front_port}`,
-        credentials: true,
-    });
+    if (configService.get('NODE_ENV') == 'dev') {
+        app.enableCors({
+            origin: `http://localhost:${front_port}`,
+            credentials: true,
+        });
+    }
+    else if (configService.get('NODE_ENV') == 'prod') {
+        app.enableCors({
+            origin: `https://jyachelini.github.io/ecommerce-fullstack/`,
+            credentials: true,
+        });
+    }
     app.useGlobalPipes(new common_1.ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }));
     const port = configService.get('PORT');
     await app.listen(port);
