@@ -82,6 +82,8 @@ let ProductsController = class ProductsController {
             });
     }
     async updateProduct(res, updateProductDTO, id) {
+        if (Object.keys(updateProductDTO).length == 0)
+            throw new common_1.BadRequestException();
         const productUpdated = await this.productService.updateProduct(id, updateProductDTO);
         if (!productUpdated)
             throw new common_1.NotFoundException('Product Does not exists');
