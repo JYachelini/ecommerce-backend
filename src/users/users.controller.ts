@@ -125,6 +125,6 @@ export class UsersController {
     //   throw new UnauthorizedException('You cannot update your own username.');
 
     const resp = await this.usersService.updateUser(id, user);
-    res.status(resp.statusCode).json(resp.message);
+    res.status(resp.statusCode).json({ message: resp.message });
   }
 }
