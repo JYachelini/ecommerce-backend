@@ -18,13 +18,13 @@ export declare class UsersService {
     } | {
         _id: any;
         tokens: {
-            access_token: string;
-            refresh_token: string;
-            error?: undefined;
-        } | {
             error: string;
             access_token?: undefined;
             refresh_token?: undefined;
+        } | {
+            access_token: string;
+            refresh_token: string;
+            error?: undefined;
         };
         error?: undefined;
     }>;

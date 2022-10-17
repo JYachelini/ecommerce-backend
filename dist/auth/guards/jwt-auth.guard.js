@@ -24,16 +24,6 @@ let JwtAuthGuard = class JwtAuthGuard extends (0, passport_1.AuthGuard)('jwt') {
         }
         return user;
     }
-    canActivate(context) {
-        const isPublic = this.reflector.getAllAndOverride('isPublic', [
-            context.getHandler(),
-            context.getClass(),
-        ]);
-        if (isPublic) {
-            return true;
-        }
-        return super.canActivate(context);
-    }
 };
 JwtAuthGuard = __decorate([
     (0, common_1.Injectable)(),

@@ -8,5 +8,5 @@ export declare class CartController {
     private usersService;
     constructor(cartService: CartService, usersService: UsersService);
     createOrder(res: Response, createCartDTO: CreateCartDTO, req: Request): Promise<void>;
-    getCarts(res: any, page: number, limit: number, userId: ObjectId, _id: ObjectId): Promise<any>;
+    getOrders(res: any, page: number, limit: number, userId: ObjectId, _id: ObjectId): Promise<any>;
 }

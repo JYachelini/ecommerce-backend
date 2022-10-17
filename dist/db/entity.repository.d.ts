@@ -3,6 +3,7 @@ export declare abstract class EntityRepository<T extends Document> {
     protected readonly entityModel: Model<T>;
     constructor(entityModel: Model<T>);
     find: (Filter: FilterQuery<T>, Sort: any, pages: number, limitPages: number) => Promise<T[] | null>;
+    findAll: () => Promise<any>;
     findAndCount: (Filter: FilterQuery<T>) => Promise<any>;
     findById: (Filter: FilterQuery<T>, projection?: Record<string, unknown>) => Promise<T | null>;
     findOne: (Filter: FilterQuery<T>, projection?: Record<string, unknown>) => Promise<T | null>;

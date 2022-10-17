@@ -21,6 +21,14 @@ export abstract class EntityRepository<T extends Document> {
     }
   };
 
+  findAll = async () => {
+    try {
+      return await this.entityModel.find();
+    } catch (error) {
+      return error;
+    }
+  };
+
   findAndCount = async (Filter: FilterQuery<T>) => {
     try {
       return await this.entityModel.countDocuments(Filter).exec();

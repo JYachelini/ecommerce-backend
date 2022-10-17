@@ -37,7 +37,7 @@ let CartController = class CartController {
             res.status(common_1.HttpStatus.OK).json(resp);
         }
     }
-    async getCarts(res, page, limit, userId, _id) {
+    async getOrders(res, page, limit, userId, _id) {
         let filters = {};
         if (userId) {
             filters = { userId };
@@ -80,7 +80,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Number, Number, Object, Object]),
     __metadata("design:returntype", Promise)
-], CartController.prototype, "getCarts", null);
+], CartController.prototype, "getOrders", null);
 CartController = __decorate([
     (0, common_1.Controller)('cart'),
     __metadata("design:paramtypes", [cart_service_1.CartService,

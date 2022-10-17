@@ -17,6 +17,14 @@ class EntityRepository {
                 return error;
             }
         };
+        this.findAll = async () => {
+            try {
+                return await this.entityModel.find();
+            }
+            catch (error) {
+                return error;
+            }
+        };
         this.findAndCount = async (Filter) => {
             try {
                 return await this.entityModel.countDocuments(Filter).exec();

@@ -17,6 +17,7 @@ const auth_module_1 = require("./auth/auth.module");
 const config_2 = require("./config/config");
 const env_validation_1 = require("./config/env.validation");
 const mail_module_1 = require("./mail/mail.module");
+const chat_module_1 = require("./chat/chat.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -40,7 +41,10 @@ AppModule = __decorate([
             users_module_1.UsersModule,
             auth_module_1.AuthModule,
             mail_module_1.MailModule,
+            chat_module_1.ChatModule,
         ],
+        providers: [],
+        controllers: [],
     })
 ], AppModule);
 exports.AppModule = AppModule;

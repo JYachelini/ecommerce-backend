@@ -9,6 +9,10 @@ declare class EnvironmentVariables {
     MONGODB_URI: string;
     JWT_SECRET: string;
     JWT_REFRESH_SECRET: string;
+    MAIL_HOST: string;
+    MAIL_PORT: number | string;
+    ADMIN_MAIL: string;
+    ADMIN_MAIL_PASSWORD: string;
 }
 export declare function validate(configuration: Record<string, unknown>): EnvironmentVariables;
 export {};

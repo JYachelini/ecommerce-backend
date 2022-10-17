@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import config from './config/config';
 import { validate } from './config/env.validation';
 import { MailModule } from './mail/mail.module';
+import { ChatModule } from './chat/chat.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -29,7 +30,10 @@ import { MailModule } from './mail/mail.module';
     UsersModule,
     AuthModule,
     MailModule,
+    ChatModule,
   ],
+  providers: [],
+  controllers: [],
   // This provider is for protect all routes with JwtAuthGuard.
   // providers: [
   //   {

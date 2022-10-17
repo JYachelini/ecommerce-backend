@@ -13,13 +13,13 @@ export declare class UsersController {
     register(user: CreateUserDTO, res: any): Promise<void>;
     logout(_id: ObjectId, res: Response): Promise<void>;
     refreshToken(_id: ObjectId, refresh_token: string): Promise<{
-        access_token: string;
-        refresh_token: string;
-        error?: undefined;
-    } | {
         error: string;
         access_token?: undefined;
         refresh_token?: undefined;
+    } | {
+        access_token: string;
+        refresh_token: string;
+        error?: undefined;
     }>;
     users(res: any, _id: ObjectId, sort: string, page: number, limit: number): Promise<void>;
     updateUser(user: UpdateUserDTO, id: ObjectId, res: any): Promise<void>;
